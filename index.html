@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祝梁志生日快乐！</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@gh-pages/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 10;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #FFD700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #FFD700, #FF8C00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #FFD700;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+            max-width: 550px;
+            text-align: center;
+        }
+        
+        .card-title {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #FFD700;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .card-title i {
+            font-size: 1.8rem;
+        }
+        
+        .cake-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            margin: 0 auto 30px;
+        }
+        
+        .cake {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            height: 130px;
+            background: linear-gradient(to bottom, #f8c4d0, #e8a1af);
+            border-radius: 50% 50% 0 0;
+            z-index: 2;
+        }
+        
+        .cake:before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            width: 200px;
+            height: 40px;
+            background: linear-gradient(to bottom, #fce4ec, #f8bbd0);
+            border-radius: 10px;
+        }
+        
+        .cake-top {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 190px;
+            height: 30px;
+            background: linear-gradient(to bottom, #ffb6c1, #ff9eb5);
+            border-radius: 50%;
+        }
+        
+        .candle {
+            position: absolute;
+            top: -60px;
+            width: 12px;
+            height: 60px;
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+            border-radius: 5px;
+            z-index: 3;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .candle:nth-child(1) {
+            left: 30%;
+        }
+        
+        .candle:nth-child(2) {
+            left: 50%;
+        }
+        
+        .candle:nth-child(3) {
+            left: 70%;
+        }
+        
+        .flame {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 30px;
+            background: linear-gradient(to bottom, #fff200, #ff5722);
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 20px #ff9800;
+            animation: flicker 0.8s infinite alternate;
+            z-index: 4;
+        }
+        
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.1) rotate(2deg); }
+            100% { transform: translateX(-50%) scale(1.15) rotate(-2deg); }
+        }
+        
+        .smoke {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            opacity: 0;
+        }
+        
+        .blessing {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.2);
+            margin: 30px 0;
+            line-height: 1.3;
+            background: linear-gradient(45deg, #ff8a00, #e52e71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 15px;
+            border-radius: 15px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        
+        .blessing.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .instructions {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            background: linear-gradient(to right, #FF416C, #FF4B2B);
+            color: white;
+            border: none;
+            padding: 16px 35px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+            margin: 20px 0;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 65, 108, 0.6);
+        }
+        
+        .btn:active {
+            transform: translateY(2px);
+        }
+        
+        .btn i {
+            font-size: 1.4rem;
+        }
+        
+        .qr-container {
+            margin: 25px auto;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        
+        #qrcode {
+            display: inline-block;
+            margin: 15px auto;
+        }
+        
+        .qr-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #f00;
+            opacity: 0;
+            z-index: 100;
+        }
+        
+        .bubble {
+            position: absolute;
+            bottom: 0;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            animation: rise 12s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes rise {
+            to {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .banner {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 215, 0, 0.2);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #FFD700;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            z-index: 10;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .card-title {
+                font-size: 1.7rem;
+            }
+            
+            .blessing {
+                font-size: 2rem;
+            }
+            
+            .cake-container {
+                height: 250px;
+            }
+            
+            .cake {
+                width: 180px;
+                height: 110px;
+            }
+            
+            .cake:before {
+                width: 160px;
+                left: 8px;
+            }
+            
+            .cake-top {
+                width: 150px;
+            }
+            
+            .banner {
+                top: 10px;
+                right: 10px;
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景装饰 -->
+    <div class="bubbles"></div>
+    
+    <!-- 横幅祝福 -->
+    <div class="banner">
+        祝梁志生日快乐！
+    </div>
+    
+    <div class="header">
+        <h1><i class="fas fa-birthday-cake"></i> 祝梁志生日快乐！</h1>
+        <div class="subtitle">特别定制的交互式生日贺卡</div>
+    </div>
+    
+    <div class="container">
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-cake-candles"></i> 互动生日蛋糕</h2>
+            
+            <div class="cake-container">
+                <div class="cake"></div>
+                <div class="cake-top"></div>
+                
+                <!-- 蜡烛 -->
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+            </div>
+            
+            <div class="instructions">
+                <p>点击下方按钮，然后对着麦克风吹气来吹灭蜡烛！</p>
+                <p>吹灭所有蜡烛后，将显示特别祝福！</p>
+            </div>
+            
+            <button class="btn" id="micButton">
+                <i class="fas fa-microphone"></i> 吹灭蜡烛
+            </button>
+            
+            <div class="blessing" id="birthdayBlessing">
+                祝梁志生日快乐！<br>愿所愿皆所得！
+            </div>
+            
+            <div class="qr-container">
+                <div class="qr-title">扫描二维码在手机上体验</div>
+                <div id="qrcode"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© 2023 特别定制 | 祝梁志生日快乐！</p>
+    </div>
+    
+    <script>
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            // 生成当前页面的二维码
+            const currentUrl = window.location.href;
+            new QRCode(document.getElementById("qrcode"), {
+                text: currentUrl,
+                width: 200,
+                height: 200,
+                colorDark: "#e91e63",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            
+            // 添加背景气泡
+            const bubblesContainer = document.querySelector('.bubbles');
+            for (let i = 0; i < 25; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                bubble.style.left = Math.random() * 100 + 'vw';
+                bubble.style.width = (Math.random() * 60 + 20) + 'px';
+                bubble.style.height = bubble.style.width;
+                bubble.style.animationDelay = Math.random() * 15 + 's';
+                bubble.style.animationDuration = (Math.random() * 10 + 8) + 's';
+                bubblesContainer.appendChild(bubble);
+            }
+            
+            // 吹蜡烛功能
+            setupCandleBlowing();
+        });
+        
+        // 吹蜡烛功能设置
+        function setupCandleBlowing() {
+            const micButton = document.getElementById('micButton');
+            const birthdayBlessing = document.getElementById('birthdayBlessing');
+            const flames = document.querySelectorAll('.flame');
+            
+            let audioContext;
+            let analyser;
+            let microphone;
+            let isBlowing = false;
+            let candlesBlown = 0;
+            
+            // 初始化音频
+            async function setupAudio() {
+                try {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    analyser = audioContext.createAnalyser();
+                    analyser.fftSize = 256;
+                    
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    microphone = audioContext.createMediaStreamSource(stream);
+                    microphone.connect(analyser);
+                    
+                    micButton.innerHTML = '<i class="fas fa-wind"></i> 正在监听...请吹气！';
+                    micButton.classList.add('blowing');
+                    
+                    isBlowing = true;
+                    checkBlowing();
+                } catch (error) {
+                    console.error("麦克风访问错误:", error);
+                    micButton.innerHTML = '<i class="fas fa-microphone-slash"></i> 麦克风访问失败';
+                    micButton.disabled = true;
+                }
+            }
+            
+            // 检测吹气
+            function checkBlowing() {
+                if (!isBlowing) return;
+                
+                const dataArray = new Uint8Array(analyser.frequencyBinCount);
+                analyser.getByteFrequencyData(dataArray);
+                
+                // 检测低频能量（吹气通常产生低频声音）
+                let sum = 0;
+                for (let i = 0; i < 10; i++) {
+                    sum += dataArray[i];
+                }
+                
+                if (sum > 500) {
+                    blowCandle();
+                }
+                
+                requestAnimationFrame(checkBlowing);
+            }
+            
+            // 吹灭蜡烛
+            function blowCandle() {
+                if (candlesBlown >= flames.length) return;
+                
+                const flame = flames[candlesBlown];
+                flame.style.animation = 'none';
+                flame.style.opacity = '0';
+                flame.style.transition = 'opacity 0.5s ease';
+                
+                // 添加烟雾效果
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        const smoke = document.createElement('div');
+                        smoke.classList.add('smoke');
+                        smoke.style.left = flame.parentElement.style.left;
+                        flame.parentElement.appendChild(smoke);
+                        
+                        // 随机位置
+                        const leftPos = parseInt(flame.parentElement.style.left || '0') + Math.random() * 20 - 10;
+                        smoke.style.left = leftPos + 'px';
+                        
+                        // 动画
+                        smoke.style.opacity = '1';
+                        smoke.style.transition = 'all 2s ease';
+                        setTimeout(() => {
+                            smoke.style.opacity = '0';
+                            smoke.style.transform = 'translate(-50%, -100px)';
+                        }, 50);
+                        
+                        // 移除元素
+                        setTimeout(() => {
+                            smoke.remove();
+                        }, 2000);
+                    }, i * 200);
+                }
+                
+                candlesBlown++;
+                
+                // 所有蜡烛都吹灭了
+                if (candlesBlown === flames.length) {
+                    setTimeout(() => {
+                        birthdayBlessing.classList.add('show');
+                        createConfetti();
+                        micButton.innerHTML = '<i class="fas fa-check"></i> 蜡烛已吹灭！';
+                        micButton.disabled = true;
+                        isBlowing = false;
+                        
+                        // 播放音频
+                        playHappyBirthday();
+                    }, 1000);
+                }
+            }
+            
+            // 创建彩色纸屑效果
+            function createConfetti() {
+                const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722'];
+                
+                for (let i = 0; i < 200; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    document.body.appendChild(confetti);
+                    
+                    // 随机属性
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const size = Math.random() * 12 + 6;
+                    const posX = Math.random() * 100;
+                    const posY = -20;
+                    
+                    confetti.style.backgroundColor = color;
+                    confetti.style.width = size + 'px';
+                    confetti.style.height = size + 'px';
+                    confetti.style.left = posX + 'vw';
+                    confetti.style.top = posY + 'vh';
+                    confetti.style.opacity = '1';
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    
+                    // 动画
+                    const animation = confetti.animate([
+                        { transform: `translate(0, 0) rotate(0deg)`, opacity: 1 },
+                        { transform: `translate(${Math.random() * 200 - 100}px, 100vh) rotate(${Math.random() * 720}deg)`, opacity: 0 }
+                    ], {
+                        duration: Math.random() * 4000 + 2000,
+                        easing: 'cubic-bezier(0,0.9,0.57,1)'
+                    });
+                    
+                    // 动画结束后移除元素
+                    animation.onfinish = () => confetti.remove();
+                }
+            }
+            
+            // 播放生日快乐音乐
+            function playHappyBirthday() {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.type = 'triangle';
+                gainNode.gain.value = 0.3;
+                
+                // 生日快乐旋律
+                const notes = [
+                    {note: 60, duration: 0.5}, // C4
+                    {note: 60, duration: 0.25}, // C4
+                    {note: 62, duration: 0.75}, // D4
+                    {note: 60, duration: 0.75}, // C4
+                    {note: 65, duration: 0.75}, // F4
+                    {note: 64, duration: 1.5},  // E4
+                    
+                    {note: 60, duration: 0.5},  // C4
+                    {note: 60, duration: 0.25}, // C4
+                    {note: 62, duration: 0.75}, // D4
+                    {note: 60, duration: 0.75}, // C4
+                    {note: 67, duration: 0.75}, // G4
+                    {note: 65, duration: 1.5},  // F4
+                    
+                    {note: 60, duration: 0.5},  // C4
+                    {note: 60, duration: 0.25}, // C4
+                    {note: 72, duration: 0.75}, // C5
+                    {note: 69, duration: 0.75}, // A4
+                    {note: 65, duration: 0.75}, // F4
+                    {note: 64, duration: 0.75}, // E4
+                    {note: 62, duration: 1.25}, // D4
+                    
+                    {note: 70, duration: 0.5},  // A#4
+                    {note: 70, duration: 0.25}, // A#4
+                    {note: 69, duration: 0.75}, // A4
+                    {note: 65, duration: 0.75}, // F4
+                    {note: 67, duration: 0.75}, // G4
+                    {note: 65, duration: 1.5}   // F4
+                ];
+                
+                let time = audioContext.currentTime;
+                
+                notes.forEach(note => {
+                    oscillator.frequency.setValueAtTime(midiToFrequency(note.note), time);
+                    time += note.duration * 0.5;
+                    oscillator.frequency.setValueAtTime(midiToFrequency(note.note + 1), time);
+                    time += note.duration * 0.5;
+                });
+                
+                oscillator.start();
+                oscillator.stop(time + 1);
+            }
+            
+            // MIDI音符转换为频率
+            function midiToFrequency(note) {
+                return 440 * Math.pow(2, (note - 69) / 12);
+            }
+            
+            // 事件监听
+            micButton.addEventListener('click', setupAudio);
+        }
+    </script>
+</body>
+</html>
